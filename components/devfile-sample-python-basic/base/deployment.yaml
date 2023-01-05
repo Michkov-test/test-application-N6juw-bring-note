@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-sample-python-basic
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-sample-python-basic
+    app.kubernetes.io/part-of: test-application
+  name: devfile-sample-python-basic
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: devfile-sample-python-basic
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: devfile-sample-python-basic
+    spec:
+      containers:
+      - image: quay.io/mkovarik/devfile-sample-python-basic
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}
